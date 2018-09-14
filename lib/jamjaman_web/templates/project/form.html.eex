@@ -1,0 +1,53 @@
+  <div class="panel panel-default">
+      <div class="panel-heading"></div>
+      <div class="panel-body">
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :title, class: "control-label" %>
+    <%= text_input f, :title, class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, class: "control-label" %>
+    <%= textarea f, :description, class: "form-control" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :status, class: "control-label" %>
+    <%= text_input f, :status, class: "form-control" %>
+    <%= error_tag f, :status %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_ofr, class: "control-label" %>
+    <%= checkbox f, :is_ofr, class: "checkbox" %>
+    <%= error_tag f, :is_ofr %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_approved, class: "control-label" %>
+    <%= checkbox f, :is_approved, class: "checkbox" %>
+    <%= error_tag f, :is_approved %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :approval_time, class: "control-label" %>
+    <%= datetime_select f, :approval_time, class: "form-control" %>
+    <%= error_tag f, :approval_time %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+    <span><%= link "Cancel", to: project_path(@conn, :index), class: "btn btn-warning" %></span>
+  </div>
+<% end %>
+</div>
+</div>
